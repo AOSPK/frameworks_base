@@ -694,6 +694,7 @@ interface IActivityManager {
      */
     boolean enableAppFreezer(in boolean enable);
 
+    /**
      *  Should disable touch if three fingers to screen shot is active?
      */
     boolean isSwipeToScreenshotGestureActive();

@@ -1,5 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2021 The Kraken Project
+     Copyright (C) 2021 Kraken Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,19 +16,7 @@
 -->
 <resources>
 
-    <!-- Vendor signatures -->
-    <java-symbol type="array" name="config_vendorPlatformSignatures" />
-
-    <!-- Package Manager -->
-    <java-symbol type="array" name="config_deviceDisabledComponents" />
-    <java-symbol type="array" name="config_globallyDisabledComponents" />
-    <java-symbol type="array" name="config_forceEnabledComponents" />
-
-    <!-- Device keyhandlers -->
-    <java-symbol type="array" name="config_deviceKeyHandlerLibs" />
-    <java-symbol type="array" name="config_deviceKeyHandlerClasses" />
-
     <!-- Cycle through ringer modes -->
-    <java-symbol type="string" name="volume_dialog_ringer_guidance_normal" />
+    <string name="volume_dialog_ringer_guidance_normal">Calls and notifications will ring</string>
 
 </resources>

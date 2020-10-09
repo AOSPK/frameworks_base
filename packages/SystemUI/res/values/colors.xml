@@ -271,4 +271,9 @@
     <color name="misalignment_text_color">#F28B82</color>
 
     <color name="screenrecord_status_color">#E94235</color>
+
+    <!-- Clear all notifications button -->
+    <color name="dismiss_all_background_color">@android:color/white</color>
+    <color name="dismiss_all_background_color_ripple">#a8a8a8</color>
+    <color name="dismiss_all_icon_color">#8a000000</color>
 </resources>

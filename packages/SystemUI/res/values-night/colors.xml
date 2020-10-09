@@ -105,4 +105,8 @@
     <!-- Color of background circle of user avatars in quick settings user switcher -->
     <color name="qs_user_switcher_avatar_background">#3C4043</color>
 
+    <!-- Clear all notifications button -->
+    <color name="dismiss_all_background_color">#1a1a1a</color>
+    <color name="dismiss_all_background_color_ripple">#555555</color>
+    <color name="dismiss_all_icon_color">@android:color/white</color>
 </resources>

@@ -567,7 +567,7 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
         if (!mDeviceProvisioned && !action.showBeforeProvisioning()) {
             return false;
         }
-        return action.shouldShow();
+        return true;
     }
 
     private boolean shouldShowRestartSubmenu() {
@@ -1143,8 +1143,6 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
 
     @VisibleForTesting
     class ScreenshotAction extends SinglePressAction implements LongPressAction {
-        final String KEY_SYSTEM_NAV_2BUTTONS = "system_nav_2buttons";
-
         public ScreenshotAction() {
             super(R.drawable.ic_screenshot, R.string.global_action_screenshot);
         }
@@ -1175,19 +1173,6 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
         public boolean showBeforeProvisioning() {
             return false;
         }
-
-        @Override
-        public boolean shouldShow() {
-          // Include screenshot in power menu for legacy nav because it is not accessible
-          // through Recents in that mode
-            return is2ButtonNavigationEnabled();
-        }
-
-        boolean is2ButtonNavigationEnabled() {
-            return NAV_BAR_MODE_2BUTTON == mContext.getResources().getInteger(
-                    com.android.internal.R.integer.config_navBarInteractionMode);
-        }
-
 
         @Override
         public boolean onLongPress() {
@@ -1827,10 +1812,6 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
          * @return
          */
         CharSequence getMessage();
-
-        default boolean shouldShow() {
-            return true;
-        }
     }
 
     /**

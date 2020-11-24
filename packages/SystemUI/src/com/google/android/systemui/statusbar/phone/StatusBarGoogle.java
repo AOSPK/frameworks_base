@@ -1,40 +1,28 @@
-/*
- * Copyright (C) 2020 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-package com.android.systemui.statusbar.phone.dagger;
+package com.google.android.systemui.statusbar.phone;
 
 import static com.android.systemui.Dependency.TIME_TICK_HANDLER_NAME;
 
+import android.annotation.Nullable;
 import android.content.Context;
 import android.os.Handler;
 import android.os.PowerManager;
+import android.os.SystemClock;
+import android.text.TextUtils;
 import android.util.DisplayMetrics;
-
-import androidx.annotation.Nullable;
-
+import android.util.Log;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
 import com.android.internal.logging.MetricsLogger;
 import com.android.keyguard.KeyguardUpdateMonitor;
 import com.android.keyguard.ViewMediatorCallback;
+import com.android.systemui.dagger.qualifiers.UiBackground;
 import com.android.systemui.InitController;
 import com.android.systemui.assist.AssistManager;
 import com.android.systemui.biometrics.FODCircleViewImpl;
 import com.android.systemui.broadcast.BroadcastDispatcher;
 import com.android.systemui.bubbles.BubbleController;
 import com.android.systemui.colorextraction.SysuiColorExtractor;
-import com.android.systemui.dagger.qualifiers.UiBackground;
+import com.android.systemui.dock.DockManager;
 import com.android.systemui.keyguard.DismissCallbackRegistry;
 import com.android.systemui.keyguard.KeyguardViewMediator;
 import com.android.systemui.keyguard.ScreenLifecycle;
@@ -58,6 +46,7 @@ import com.android.systemui.statusbar.PulseExpansionHandler;
 import com.android.systemui.statusbar.SuperStatusBarViewFactory;
 import com.android.systemui.statusbar.SysuiStatusBarStateController;
 import com.android.systemui.statusbar.VibratorHelper;
+import com.android.systemui.statusbar.phone.dagger.StatusBarComponent;
 import com.android.systemui.statusbar.notification.DynamicPrivacyController;
 import com.android.systemui.statusbar.notification.NotificationWakeUpCoordinator;
 import com.android.systemui.statusbar.notification.VisualStabilityManager;
@@ -82,13 +71,13 @@ import com.android.systemui.statusbar.phone.LockscreenWallpaper;
 import com.android.systemui.statusbar.phone.NotificationGroupManager;
 import com.android.systemui.statusbar.phone.NotificationShadeWindowController;
 import com.android.systemui.statusbar.phone.PhoneStatusBarPolicy;
-import com.android.systemui.statusbar.phone.ScrimController;
 import com.android.systemui.statusbar.phone.ShadeController;
 import com.android.systemui.statusbar.phone.StatusBar;
 import com.android.systemui.statusbar.phone.StatusBarIconController;
 import com.android.systemui.statusbar.phone.StatusBarKeyguardViewManager;
 import com.android.systemui.statusbar.phone.StatusBarNotificationActivityStarter;
 import com.android.systemui.statusbar.phone.StatusBarTouchableRegionManager;
+import com.android.systemui.statusbar.phone.dagger.StatusBarComponent;
 import com.android.systemui.statusbar.policy.BatteryController;
 import com.android.systemui.statusbar.policy.ConfigurationController;
 import com.android.systemui.statusbar.policy.DeviceProvisionedController;
@@ -101,28 +90,18 @@ import com.android.systemui.statusbar.policy.UserSwitcherController;
 import com.android.systemui.tuner.TunerService;
 import com.android.systemui.volume.VolumeComponent;
 
+import dagger.Lazy;
+
 import java.util.Optional;
 import java.util.concurrent.Executor;
 
 import javax.inject.Named;
 import javax.inject.Provider;
-import javax.inject.Singleton;
+import javax.inject.Inject;
 
-import dagger.Lazy;
-import dagger.Module;
-import dagger.Provides;
+public class StatusBarGoogle extends StatusBar {
 
-/**
- * Dagger Module providing {@link StatusBar}.
- */
-@Module(includes = {StatusBarPhoneDependenciesModule.class})
-public interface StatusBarPhoneModule {
-    /**
-     * Provides our instance of StatusBar which is considered optional.
-     */
-    @Provides
-    @Singleton
-    static StatusBar provideStatusBar(
+    public StatusBarGoogle(
             Context context,
             NotificationsController notificationsController,
             LightBarController lightBarController,
@@ -168,7 +147,7 @@ public interface StatusBarPhoneModule {
             NotificationShadeWindowController notificationShadeWindowController,
             LockscreenLockIconController lockscreenLockIconController,
             DozeParameters dozeParameters,
-            ScrimController scrimController,
+            LiveWallpaperScrimController liveWallpaperScrimController,
             @Nullable KeyguardLiftController keyguardLiftController,
             Lazy<LockscreenWallpaper> lockscreenWallpaperLazy,
             Lazy<BiometricUnlockController> biometricUnlockControllerLazy,
@@ -198,13 +177,12 @@ public interface StatusBarPhoneModule {
             UserInfoControllerImpl userInfoControllerImpl,
             PhoneStatusBarPolicy phoneStatusBarPolicy,
             KeyguardIndicationController keyguardIndicationController,
-            Lazy<NotificationShadeDepthController> notificationShadeDepthController,
             DismissCallbackRegistry dismissCallbackRegistry,
+            Lazy<NotificationShadeDepthController> notificationShadeDepthControllerLazy,
             StatusBarTouchableRegionManager statusBarTouchableRegionManager,
             TunerService tunerService,
             FODCircleViewImpl fodCircleViewImpl) {
-        return new StatusBar(
-                context,
+        super(context,
                 notificationsController,
                 lightBarController,
                 autoHideController,
@@ -249,7 +227,7 @@ public interface StatusBarPhoneModule {
                 notificationShadeWindowController,
                 lockscreenLockIconController,
                 dozeParameters,
-                scrimController,
+                liveWallpaperScrimController,
                 keyguardLiftController,
                 lockscreenWallpaperLazy,
                 biometricUnlockControllerLazy,
@@ -279,9 +257,19 @@ public interface StatusBarPhoneModule {
                 phoneStatusBarPolicy,
                 keyguardIndicationController,
                 dismissCallbackRegistry,
-                notificationShadeDepthController,
+                notificationShadeDepthControllerLazy,
                 statusBarTouchableRegionManager,
                 tunerService,
                 fodCircleViewImpl);
+    }
+
+    @Override
+    public void start() {
+        super.start();
+    }
+
+    @Override
+    public void setLockscreenUser(int i) {
+        super.setLockscreenUser(i);
     }
 }

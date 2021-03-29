@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2021 The Kraken Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- Caffeine QS Tile -->
+    <string name="quick_settings_caffeine_label">Cafeína</string>
+    <string name="accessibility_quick_settings_caffeine_off">Cafeína desativado</string>
+    <string name="accessibility_quick_settings_caffeine_on">Caféina ativado</string>
+
+    <!-- Ambient display QS tile -->
+    <string name="quick_settings_ambient_display_label">Tela ambiente</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Tela ambiente desativado</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Tela ambiente ativado</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Desativar tela ambiente</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Ativar tela ambiente</string>
+
+    <!-- USB tethering QS tile -->
+    <string name="quick_settings_usb_tether_label">Compartilhamento USB</string>
+
+     <!-- Sync QS Tile -->
+    <string name="quick_settings_sync_label">Sincronia</string>
+    <string name="accessibility_quick_settings_sync_off">Sincronia desativado</string>
+    <string name="accessibility_quick_settings_sync_on">Sincronia ativado</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Desativar sincronia</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Ativar sincronia</string>
+
+    <!-- Sound QS Tile -->
+    <string name="quick_settings_sound_label">Sons</string>
+    <string name="quick_settings_sound_ring">Toques</string>
+    <string name="quick_settings_sound_vibrate">Vibração</string>
+    <string name="quick_settings_sound_dnd">Não pertube</string>
+</resources>

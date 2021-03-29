@@ -2298,4 +2298,10 @@
     <string name="view_and_control_notification_content" msgid="8003766498562604034">"O serviço <xliff:g id="SERVICE_NAME">%s</xliff:g> pode ver e controlar sua tela. Toque para revisar."</string>
     <string name="ui_translation_accessibility_translated_text" msgid="3197547218178944544">"Mensagem \"<xliff:g id="MESSAGE">%1$s</xliff:g>\" traduzida."</string>
     <string name="ui_translation_accessibility_translation_finished" msgid="3057830947610088465">"Mensagem traduzida do <xliff:g id="FROM_LANGUAGE">%1$s</xliff:g> para o <xliff:g id="TO_LANGUAGE">%2$s</xliff:g>."</string>
+    <string name="reboot_to_bootloader_title">Reiniciar no modo bootloader</string>
+    <string name="reboot_to_bootloader_message">Reiniciando no modo bootloader\u2026</string>
+    <string name="reboot_to_recovery_title">Reiniciar no modo recuperação</string>
+    <string name="reboot_to_recovery_message">Reiniciando no modo recuperação\u2026</string>
+    <string name="reboot_system_title">Reiniciar no sistema</string>
+    <string name="reboot_system_message">Reiniciando no sistema\u2026</string>
 </resources>

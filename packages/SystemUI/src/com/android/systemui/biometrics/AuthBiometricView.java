@@ -16,8 +16,6 @@
 
 package com.android.systemui.biometrics;
 
-import static android.view.WindowManagerPolicyConstants.NAV_BAR_MODE_GESTURAL;
-
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
@@ -26,12 +24,11 @@ import android.annotation.IntDef;
 import android.annotation.NonNull;
 import android.annotation.Nullable;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.hardware.biometrics.BiometricPrompt;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.os.UserHandle;
-import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -51,14 +48,14 @@ import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.android.internal.util.custom.fod.FodUtils;
-
 /**
  * Contains the Biometric views (title, subtitle, icon, buttons, etc) and its controllers.
  */
 public abstract class AuthBiometricView extends LinearLayout {
 
     private static final String TAG = "BiometricPrompt/AuthBiometricView";
+
+    private static final String FOD = "vendor.lineage.biometrics.fingerprint.inscreen";
 
     /**
      * Authentication hardware idle.
@@ -198,6 +195,7 @@ public abstract class AuthBiometricView extends LinearLayout {
     protected boolean mDialogSizeAnimating;
     protected Bundle mSavedState;
 
+    protected final PackageManager mPackageManager;
     protected boolean mHasFod;
 
     /**
@@ -260,7 +258,8 @@ public abstract class AuthBiometricView extends LinearLayout {
         mInjector = injector;
         mInjector.mBiometricView = this;
 
-        mHasFod = FodUtils.hasFodSupport(context);
+        mPackageManager = context.getPackageManager();
+        mHasFod = mPackageManager.hasSystemFeature(FOD);
 
         mAccessibilityManager = context.getSystemService(AccessibilityManager.class);
 
@@ -645,9 +644,6 @@ public abstract class AuthBiometricView extends LinearLayout {
                 mUseFaceButton.setVisibility(View.GONE);
             }
             if (mHasFod) {
-                boolean isGesturalNav = Integer.parseInt(Settings.Secure.getStringForUser(
-                        mContext.getContentResolver(), Settings.Secure.NAVIGATION_MODE,
-                        UserHandle.USER_CURRENT)) == NAV_BAR_MODE_GESTURAL;
                 final int navbarHeight = getResources().getDimensionPixelSize(
                         com.android.internal.R.dimen.navigation_bar_height);
                 final int fodMargin = getResources().getDimensionPixelSize(
@@ -656,11 +652,9 @@ public abstract class AuthBiometricView extends LinearLayout {
                 mIconView.setVisibility(View.INVISIBLE);
                 // The view is invisible, so it still takes space and
                 // we use that to adjust for the FOD
+                mIconView.setPadding(0, 0, 0, fodMargin - navbarHeight);
 
-                mIconView.setPadding(0, 0, 0, isGesturalNav ? fodMargin : (fodMargin > navbarHeight)
-                    ? (fodMargin - navbarHeight) : 0);
-
-                // Add IndicatorView above the biometric icon
+                // Add Errortext above the biometric icon
                 this.removeView(mIndicatorView);
                 this.addView(mIndicatorView, this.indexOfChild(mIconView));
             } else {

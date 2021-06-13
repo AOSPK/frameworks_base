@@ -220,5 +220,5 @@
   </string-array>
 
   <!-- Name of the "Type" clock face [CHAR LIMIT=15]-->
-  <string name="clock_title_type">Tipo</string>
+  <string name="clock_title_type">Texto</string>
 </resources>

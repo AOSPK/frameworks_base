@@ -218,4 +218,7 @@
     <item msgid="848339003778952950">"Cinquenta\ne oito"</item>
     <item msgid="5798985802835423618">"Cinquenta\ne nove"</item>
   </string-array>
+
+  <!-- Name of the "Type" clock face [CHAR LIMIT=15]-->
+  <string name="clock_title_type">Tipo</string>
 </resources>

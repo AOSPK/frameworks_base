@@ -132,7 +132,7 @@ public class IDEClockController implements ClockPlugin {
 
     @Override
     public String getTitle() {
-        return "IDE";
+        return "404";
     }
 
     @Override

@@ -107,7 +107,7 @@ public class SfunyClockController implements ClockPlugin {
 
     @Override
     public String getTitle() {
-        return "SFUNY";
+        return "Sfuny";
     }
 
     @Override

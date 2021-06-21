@@ -14995,10 +14995,10 @@ public final class Settings {
         public static final String ONE_HANDED_KEYGUARD_SIDE = "one_handed_keyguard_side";
 
         /**
-        * Whether to allow battery light
+        * Whether to blink light when battery is low
         * @hide
         */
-        public static final String BATTERY_LIGHT_ENABLED = "battery_light_enabled";
+        public static final String LOW_BATTERY_LIGHT_ENABLED = "low_battery_light_enabled";
 
         /**
          * Keys we no longer back up under the current schema, but want to continue to

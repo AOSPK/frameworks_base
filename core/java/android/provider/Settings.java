@@ -4262,6 +4262,18 @@ public final class Settings {
         @Readable
         public static final String PEAK_REFRESH_RATE = "peak_refresh_rate";
 
+         /**
+         * The user selected preferred refresh rate in frames per second.
+         *
+         * This defines the refresh rate at which UI will run, provided it
+         * falls in the range of minimum and peak refresh rate.
+         *
+         * If this isn't set, the system falls back to a device specific default.
+         * @hide
+         */
+        @Readable
+        public static final String PREFERRED_REFRESH_RATE = "preferred_refresh_rate";
+
         /**
          * Whether refresh rate should be switched to 60Hz on power save mode.
          * @hide

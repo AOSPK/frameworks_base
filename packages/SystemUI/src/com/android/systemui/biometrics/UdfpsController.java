@@ -160,6 +160,7 @@ public class UdfpsController implements DozeReceiver, UdfpsHbmProvider {
     private Runnable mAodInterruptRunnable;
     private boolean mOnFingerDown;
     private boolean mAttemptedToDismissKeyguard;
+    private final int mUdfpsVendorCode;
     private Set<Callback> mCallbacks = new HashSet<>();
     private final int mUdfpsVendorCode;
 

@@ -170,7 +170,7 @@
   <java-symbol type="id" name="shortcut" />
   <java-symbol type="id" name="skip_button" />
   <java-symbol type="id" name="split_action_bar" />
-  <java-symbol type="id" name="submenuarrow" />
+  <java-symbol type="id" name="submen.kraken. />
   <java-symbol type="id" name="submit_area" />
   <java-symbol type="id" name="switch_new" />
   <java-symbol type="id" name="switch_old" />
@@ -329,7 +329,7 @@
   <java-symbol type="bool" name="config_wifiDisplaySupportsProtectedBuffers" />
   <java-symbol type="bool" name="preferences_prefer_dual_pane" />
   <java-symbol type="bool" name="skip_restoring_network_selection" />
-  <java-symbol type="bool" name="split_action_bar_is_narrow" />
+  <java-symbol type="bool" name="split_action_bar_is_.kraken. />
   <java-symbol type="bool" name="config_useVolumeKeySounds" />
   <java-symbol type="bool" name="config_enableWallpaperService" />
   <java-symbol type="bool" name="config_checkWallpaperAtBoot" />
@@ -529,9 +529,9 @@
   <java-symbol type="dimen" name="notification_title_text_size" />
   <java-symbol type="dimen" name="notification_subtext_size" />
   <java-symbol type="dimen" name="notification_top_pad" />
-  <java-symbol type="dimen" name="notification_top_pad_narrow" />
+  <java-symbol type="dimen" name="notification_top_pad_.kraken. />
   <java-symbol type="dimen" name="notification_top_pad_large_text" />
-  <java-symbol type="dimen" name="notification_top_pad_large_text_narrow" />
+  <java-symbol type="dimen" name="notification_top_pad_large_text_.kraken. />
   <java-symbol type="dimen" name="notification_badge_size" />
   <java-symbol type="dimen" name="immersive_mode_cling_width" />
   <java-symbol type="dimen" name="accessibility_magnification_indicator_width" />
@@ -1360,9 +1360,9 @@
   <java-symbol type="drawable" name="ic_print_error" />
   <java-symbol type="drawable" name="ic_lock" />
   <java-symbol type="drawable" name="ic_lock_open" />
-  <java-symbol type="drawable" name="jog_dial_arrow_long_left_green" />
-  <java-symbol type="drawable" name="jog_dial_arrow_long_right_red" />
-  <java-symbol type="drawable" name="jog_dial_arrow_short_left_and_right" />
+  <java-symbol type="drawable" name="jog_dial.kraken.long_left_green" />
+  <java-symbol type="drawable" name="jog_dial.kraken.long_right_red" />
+  <java-symbol type="drawable" name="jog_dial.kraken.short_left_and_right" />
   <java-symbol type="drawable" name="jog_dial_bg" />
   <java-symbol type="drawable" name="jog_dial_dimple" />
   <java-symbol type="drawable" name="jog_dial_dimple_dim" />
@@ -1407,7 +1407,7 @@
   <java-symbol type="drawable" name="ic_media_route_off_holo_dark" />
   <java-symbol type="drawable" name="ic_media_route_off_holo_light" />
   <java-symbol type="drawable" name="cling_button" />
-  <java-symbol type="drawable" name="cling_arrow_up" />
+  <java-symbol type="drawable" name="cling.kraken.up" />
   <java-symbol type="drawable" name="cling_bg" />
   <java-symbol type="drawable" name="ic_corp_badge" />
   <java-symbol type="drawable" name="ic_corp_badge_color" />
@@ -2389,7 +2389,7 @@
   <java-symbol type="attr" name="state_focused" />
   <java-symbol type="attr" name="state_selected" />
   <java-symbol type="attr" name="state_pressed" />
-  <java-symbol type="drawable" name="compass_arrow" />
+  <java-symbol type="drawable" name="compass.kraken. />
   <java-symbol type="drawable" name="compass_base" />
   <java-symbol type="drawable" name="ic_maps_indicator_current_position_anim" />
   <java-symbol type="drawable" name="loading_tile_android" />
@@ -2799,8 +2799,8 @@
   <java-symbol type="dimen" name="floating_toolbar_icon_text_spacing" />
   <java-symbol type="dimen" name="content_rect_bottom_clip_allowance" />
   <java-symbol type="drawable" name="ft_avd_tooverflow" />
-  <java-symbol type="drawable" name="ft_avd_toarrow" />
-  <java-symbol type="drawable" name="ft_avd_toarrow_animation" />
+  <java-symbol type="drawable" name="ft_avd_t.kraken. />
+  <java-symbol type="drawable" name="ft_avd_t.kraken.animation" />
   <java-symbol type="drawable" name="ft_avd_tooverflow_animation" />
   <java-symbol type="attr" name="floatingToolbarDividerColor" />
 
@@ -2846,7 +2846,7 @@
   <java-symbol type="id" name="chooser_row_text_option" />
   <java-symbol type="dimen" name="chooser_row_text_option_translate" />
   <java-symbol type="dimen" name="chooser_preview_image_max_dimen"/>
-  <java-symbol type="drawable" name="ic_chooser_group_arrow"/>
+  <java-symbol type="drawable" name="ic_chooser_group.kraken./>
   <java-symbol type="drawable" name="chooser_group_background"/>
   <java-symbol type="drawable" name="ic_chooser_pin"/>
   <java-symbol type="drawable" name="ic_chooser_pin_dialog"/>
@@ -3822,7 +3822,7 @@
   <java-symbol type="attr" name="opticalInsetBottom" />
 
   <java-symbol type="drawable" name="ic_lock_lockdown" />
-  <java-symbol type="drawable" name="ic_arrow_forward" />
+  <java-symbol type="drawable" name="ic.kraken.forward" />
   <java-symbol type="drawable" name="ic_permission" />
 
   <java-symbol type="integer" name="config_defaultHapticFeedbackIntensity" />
@@ -3948,6 +3948,8 @@
   <java-symbol type="integer" name="config_defaultRefreshRateInZone" />
   <java-symbol type="array" name="config_brightnessThresholdsOfPeakRefreshRate" />
   <java-symbol type="array" name="config_ambientThresholdsOfPeakRefreshRate" />
+  <java-symbol type="integer" name="config_defaultRefreshRateInHbmSunlight" />
+  <java-symbol type="integer" name="config_defaultRefreshRateInHbmHdr" />
 
   <!-- For fixed refresh rate displays in high brightness-->
   <java-symbol type="integer" name="config_fixedRefreshRateInHighZone" />

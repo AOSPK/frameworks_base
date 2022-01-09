@@ -5256,11 +5256,6 @@ public final class Settings {
         public static final String[] LEGACY_RESTORE_SETTINGS = {
         };
 
-        /** Volume rocker music control
-         * @hide
-         */
-        public static final String VOLUME_BUTTON_MUSIC_CONTROL = "volume_button_music_control";
-
         /**
          * Three Finger Gesture from Oppo
          * @hide
@@ -5377,7 +5372,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(DISPLAY_COLOR_MODE);
             PRIVATE_SETTINGS.add(DISPLAY_COLOR_MODE_VENDOR_HINT);
             PRIVATE_SETTINGS.add(DOUBLE_TAP_SLEEP_LOCKSCREEN);
-            PRIVATE_SETTINGS.add(VOLUME_BUTTON_MUSIC_CONTROL);
         }
 
         /**

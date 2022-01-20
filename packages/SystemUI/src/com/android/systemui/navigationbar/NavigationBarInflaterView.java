@@ -93,7 +93,7 @@ public class NavigationBarInflaterView extends FrameLayout
     private static final String KEY_NAVIGATION_HINT =
             Settings.Secure.NAVIGATION_BAR_HINT;
     private static final String OVERLAY_NAVIGATION_HIDE_HINT =
-            "com.arrowos.overlay.customization.navbar.nohint";
+            "com.kraken.overlay.customization.navbar.nohint";
 
     protected LayoutInflater mLayoutInflater;
     protected LayoutInflater mLandscapeInflater;

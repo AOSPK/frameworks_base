@@ -38,7 +38,7 @@
                 android:width="18dp"
                 android:height="18dp"
                 android:end="8dp"
-                android:drawable="@drawable/arrow_drop_down"/>
+                android:drawable="@drawable/kraken_drop_down"/>
         </layer-list>
     </item>
 </ripple>
